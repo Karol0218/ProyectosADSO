@@ -1,0 +1,61 @@
+<!--
+  Proyecto: 100 proyectos JS · 01 - Tinder Swipe
+  Autor original: Carlos Chaparro
+  Descripción:
+  Simula el "Swipe" de Tinder: se arrastran las tarjetas hacia la izquierda
+  o la derecha para rechazar o aceptar. Los botones del footer hacen lo mismo.
+
+  Estructura:
+    css/style.css       -> estilos
+    js/profiles.js      -> datos de las personas (nombre, edad, foto)
+    js/swipe.js         -> lógica de arrastre y animaciones
+    js/main.js          -> dibuja las tarjetas y conecta los botones
+    img/ui/             -> marco del iPhone, logo e íconos
+    img/profiles/       -> fotos de las personas
+-->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Karol Quintero" />
+  <title>100 proyectos JS · 01 - Tinder Swipe</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="shadow">
+    <main class="phone">
+      <section class="screen">
+        <div class="screen__bg"></div>
+
+        <header class="app-header">
+          <img src="img/ui/tinder-logo.webp" alt="Logo de Tinder" />
+        </header>
+
+        <!-- Las tarjetas se generan desde js/main.js -->
+        <div class="cards" id="cards">
+          <span class="empty-message">
+            No hay más personas cerca de ti...<br />
+            Vuelve a intentarlo más tarde
+          </span>
+        </div>
+
+        <!-- Botones de acción -->
+        <footer class="actions">
+          <button class="is-undo" id="btn-undo" aria-label="Deshacer"></button>
+          <button class="is-remove is-big" id="btn-remove" aria-label="Rechazar"></button>
+          <button class="is-star" id="btn-star" aria-label="Super like"></button>
+          <button class="is-fav is-big" id="btn-fav" aria-label="Me gusta"></button>
+          <button class="is-zap" id="btn-zap" aria-label="Boost"></button>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <!-- El orden importa: primero los datos, luego la lógica, al final el arranque -->
+  <script src="js/profiles.js"></script>
+  <script src="js/swipe.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

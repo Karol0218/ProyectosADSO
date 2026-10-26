@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JOKATRIX: plataforma digital para administrar el inventario, las ventas, la facturación y el comercio electrónico de La Casa de los Aperos en Bucaramanga.">
+  <title>JOKATRIX · La Casa de los Aperos</title>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+  <link href="css/responsive.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- ============ NAVEGACIÓN ============ -->
+<header class="site-header" id="inicio">
+  <nav class="nav container" aria-label="Navegación principal">
+    <a class="nav-brand" href="#inicio">JOKATRIX<span class="nav-dot">.</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#empresa">Conócenos</a></li>
+      <li><a href="#proceso">Nuestra evolución</a></li>
+      <li><a href="#catalogo">Productos</a></li>
+      <li><a href="#modulos">Funcionalidades</a></li>
+      <li><a href="#demo">Prueba interactiva</a></li>
+      <li><a href="#visitanos">Encuéntranos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <div class="hero-content container">
+    <p class="eyebrow reveal">La Casa de los Aperos · Bucaramanga, Santander</p>
+    <h1 class="hero-title reveal">La esencia del campo, <em>con tecnología</em></h1>
+    <p class="hero-sub reveal">
+      JOKATRIX es una propuesta tecnológica que reúne el manejo de existencias,
+      las operaciones comerciales, la facturación, la gestión de proveedores y
+      una vitrina virtual para modernizar la comercialización de productos de
+      talabartería y del sector agropecuario.
+    </p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="#proceso">Descubrir el proyecto</a>
+      <a class="btn btn-ghost" href="#catalogo">Explorar productos</a>
+    </div>
+  </div>
+
+  <div class="hero-stats container">
+    <div class="stat reveal"><span class="stat-num" data-count="1">0</span><span class="stat-label">plataforma para centralizar las operaciones</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="4">0</span><span class="stat-label">áreas clave de administración y control</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="24">0</span><span class="stat-label">horas de disponibilidad potencial para la tienda virtual</span></div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ============ LA EMPRESA ============ -->
+  <section class="section" id="empresa">
+    <div class="container grid grid-2">
+
+      <article class="bio-text reveal">
+        <p class="eyebrow">Conócenos</p>
+        <h2>La Casa de los Aperos</h2>
+        <p>
+          En el sector céntrico de Bucaramanga, específicamente en la
+          <strong>carrera 16 con calle 36</strong>, se encuentra La Casa de los Aperos,
+          un establecimiento dedicado a la venta de artículos para el campo,
+          elementos de cuero, monturas, cadenas, cuerdas y diferentes productos
+          destinados a las labores agropecuarias, entre otros.
+        </p>
+        <p>
+          Actualmente, algunas de sus actividades comerciales se desarrollan
+          mediante procedimientos manuales. La información de los productos,
+          las ventas, los comprobantes y los proveedores se administra sin una
+          herramienta central que reúna todos los datos. Esta situación puede
+          ocasionar inconsistencias, retrasos y dificultades para conocer el
+          estado actualizado del establecimiento.
+        </p>
+        <p>
+          Por otra parte, la comunicación con los compradores se realiza
+          principalmente mediante <strong>WhatsApp</strong>, lo que limita la
+          disponibilidad de un catálogo digital propio y la organización de
+          los pedidos realizados a distancia.
+        </p>
+        <p>
+          Para responder a estas necesidades surge <strong>JOKATRIX</strong>,
+          una iniciativa que busca optimizar los procesos administrativos y
+          ofrecer nuevas posibilidades de comercialización a través de Internet.
+        </p>
+      </article>
+
+      <figure class="bio-figure reveal">
+        <div class="bio-frame">
+          <img src="logo.jpg" alt="Imagen representativa de La Casa de los Aperos"
+               onerror="this.closest('.bio-frame').classList.add('no-photo'); this.remove();">
+          <div class="bio-fallback" aria-hidden="true">
+            <span class="bio-initials">CA</span>
+          </div>
+        </div>
+        <figcaption>Experiencia tradicional del campo con nuevas oportunidades digitales.</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ============ PROCESO DE TRANSFORMACIÓN ============ -->
+  <section class="section section-alt" id="proceso">
+    <div class="container">
+      <p class="eyebrow reveal">Camino hacia la modernización</p>
+      <h2 class="reveal">De los registros manuales a la gestión digital</h2>
+
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Situación actual</span>
+          <h3>Administración tradicional</h3>
+          <p>El seguimiento de las existencias, las operaciones de venta y los documentos comerciales depende de registros manuales que dificultan la consulta centralizada de la información.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Etapa 1</span>
+          <h3>Seguimiento de existencias</h3>
+          <p>El sistema permitirá registrar los movimientos de los productos, actualizar las cantidades disponibles y advertir cuando las existencias se aproximen al límite establecido.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Etapa 2</span>
+          <h3>Administración comercial</h3>
+          <p>Las ventas y sus respectivas facturas podrán gestionarse desde una plataforma común, facilitando el registro de las operaciones y reduciendo posibles equivocaciones.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Etapa 3</span>
+          <h3>Control de proveedores</h3>
+          <p>La información de los proveedores, sus datos de contacto y los productos relacionados quedará organizada para facilitar las compras y la reposición de mercancía.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Etapa 4</span>
+          <h3>Análisis del negocio</h3>
+          <p>Los reportes y las estadísticas ayudarán a identificar los productos con mayor movimiento, revisar las existencias y disponer de información útil para tomar decisiones.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Etapa 5</span>
+          <h3>Comercio electrónico</h3>
+          <p>Los clientes podrán acceder a un catálogo digital, revisar los detalles y precios de los artículos y realizar pedidos para recibirlos mediante el servicio de entrega disponible.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CATÁLOGO ============ -->
+  <section class="section" id="catalogo">
+    <div class="container">
+      <p class="eyebrow reveal">Nuestra oferta comercial</p>
+      <h2 class="reveal">Conoce nuestras líneas de productos</h2>
+      <p class="section-intro reveal">
+        Explora algunas de las categorías que forman parte de la oferta de
+        La Casa de los Aperos. Selecciona una categoría para consultar los
+        artículos; en la tienda virtual se podrán mostrar sus especificaciones
+        y valores correspondientes.
+      </p>
+
+      <div class="filters reveal" id="filters" role="group" aria-label="Filtrar por categoría">
+        <button class="filter is-active" data-filter="todos" type="button">Ver todo</button>
+        <button class="filter" data-filter="cuero" type="button">Cuero</button>
+        <button class="filter" data-filter="monturas" type="button">Monturas</button>
+        <button class="filter" data-filter="cadenas" type="button">Cadenas y cuerdas</button>
+        <button class="filter" data-filter="agro" type="button">Agropecuarios</button>
+        <button class="filter" data-filter="polvora" type="button">Pólvora</button>
+      </div>
+
+      <div class="grid cards-grid" id="cardsGrid">
+
+        <article class="card reveal" data-cat="cuero">
+          <span class="card-year">Cuero</span>
+          <h3>Accesorios de cuero</h3>
+          <p>Artículos de talabartería como cinturones, correas, fundas y complementos fabricados en cuero.</p>
+          <button class="card-link" type="button" data-ask="Artículos de cuero">Más información →</button>
+        </article>
+
+        <article class="card reveal" data-cat="monturas">
+          <span class="card-year">Monturas</span>
+          <h3>Equipamiento para caballería</h3>
+          <p>Monturas y accesorios para caballos, adecuados para actividades rurales y recorridos a caballo.</p>
+          <button class="card-link" type="button" data-ask="Monturas">Más información →</button>
+        </article>
+
+        <article class="card reveal" data-cat="cadenas">
+          <span class="card-year">Cadenas y cuerdas</span>
+          <h3>Cadenas de uso rural</h3>
+          <p>Elementos destinados a labores de sujeción, carga y otras necesidades habituales del trabajo en el campo.</p>
+          <button class="card-link" type="button" data-ask="Cadenas">Más información →</button>
+        </article>
+
+        <article class="card reveal" data-cat="cadenas">
+          <span class="card-year">Cadenas y cuerdas</span>
+          <h3>Cuerdas y sogas</h3>
+          <p>Soluciones de amarre y sujeción para apoyar las actividades cotidianas en fincas y explotaciones rurales.</p>
+          <button class="card-link" type="button" data-ask="Cuerdas">Más información →</button>
+        </article>
+
+        <article class="card reveal" data-cat="agro">
+          <span class="card-year">Agropecuarios</span>
+          <h3>Artículos para el sector agropecuario</h3>
+          <p>Productos destinados a diferentes labores del campo, al manejo de animales y al desarrollo de actividades agropecuarias.</p>
+          <button class="card-link" type="button" data-ask="Productos agropecuarios">Más información →</button>
+        </article>
+
+        <article class="card reveal" data-cat="polvora">
+          <span class="card-year">Pólvora</span>
+          <h3>Productos de pólvora</h3>
+          <p>Información sobre esta línea comercial, sujeta a los requisitos legales, las restricciones aplicables y las condiciones autorizadas para su venta.</p>
+          <button class="card-link" type="button" data-ask="Pólvora">Más información →</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CITA ============ -->
+  <section class="section quote-band">
+    <div class="container">
+      <blockquote class="big-quote reveal">
+        <p>«Una mejor gestión comienza con información organizada y decisiones oportunas»</p>
+        <cite>— La visión de JOKATRIX para <em>La Casa de los Aperos</em></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ MÓDULOS ============ -->
+  <section class="section section-alt" id="modulos">
+    <div class="container grid grid-2">
+      <div class="video-text reveal">
+        <p class="eyebrow">Administración centralizada</p>
+        <h2>Las operaciones del negocio, conectadas</h2>
+        <p>
+          JOKATRIX está pensado para reunir en un mismo entorno las tareas
+          relacionadas con el inventario, las transacciones comerciales,
+          la facturación y el registro de proveedores. También contempla
+          herramientas de consulta que facilitan el análisis de los resultados
+          y el seguimiento de las actividades del establecimiento.
+        </p>
+        <p>
+          Al disponer de datos organizados en un solo lugar, se busca disminuir
+          el tiempo dedicado a las tareas repetitivas, mejorar la atención
+          al público y facilitar decisiones basadas en información actualizada.
+        </p>
+      </div>
+
+      <div class="video-wrap reveal" role="img" aria-label="Representación ilustrativa de un gráfico de ventas por categoría">
+        <div class="panel">
+          <div class="panel-top"><span></span><span></span><span></span><b>Distribución de ventas · datos ilustrativos</b></div>
+          <div class="panel-bars">
+            <div class="bar" style="--h:78%"><i></i><span>Cuero</span></div>
+            <div class="bar" style="--h:56%"><i></i><span>Monturas</span></div>
+            <div class="bar" style="--h:42%"><i></i><span>Cadenas</span></div>
+            <div class="bar" style="--h:90%"><i></i><span>Agro</span></div>
+            <div class="bar" style="--h:34%"><i></i><span>Pólvora</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMOSTRACIÓN DEL INVENTARIO ============ -->
+  <section class="section" id="demo">
+    <div class="container">
+      <p class="eyebrow reveal">Interactúa con el ejemplo</p>
+      <h2 class="reveal">Así funciona el control de inventario</h2>
+      <p class="section-intro reveal">
+        Prueba una simulación del funcionamiento de JOKATRIX. Registra una venta
+        de ejemplo y observa la disminución de las unidades disponibles, la
+        creación de un comprobante simulado y la aparición de avisos cuando
+        las existencias alcancen el nivel mínimo definido.
+      </p>
+
+      <div class="game-hud reveal">
+        <div class="hud-item"><span id="demoSales">0</span> venta(s)</div>
+        <div class="hud-item"><span id="demoAlerts">0</span> alerta(s)</div>
+        <div class="hud-item"><span id="demoLast">—</span></div>
+        <button class="btn btn-primary btn-small" id="demoReset">Restablecer ejemplo</button>
+      </div>
+
+      <div class="demo-alert" id="demoAlert" role="status" aria-live="polite" hidden></div>
+
+      <div class="stock-board reveal" id="stockBoard" aria-label="Productos y cantidades de inventario de demostración"></div>
+    </div>
+  </section>
+
+  <!-- ============ VISÍTANOS ============ -->
+  <section class="section section-alt" id="visitanos">
+    <div class="container">
+      <p class="eyebrow reveal">Estamos en Bucaramanga, Santander</p>
+      <h2 class="reveal">Compra en el establecimiento o desde casa</h2>
+      <p class="section-intro reveal">
+        La atención presencial continúa siendo parte de la experiencia de
+        La Casa de los Aperos. Con JOKATRIX se plantea complementar este
+        servicio mediante un canal digital que permita conocer la oferta
+        comercial sin tener que desplazarse hasta el local.
+      </p>
+
+      <div class="grid grid-2 centro-grid">
+        <article class="centro-card reveal">
+          <h3>Atención presencial</h3>
+          <p>Visita La Casa de los Aperos y conoce directamente los productos disponibles en el establecimiento.</p>
+          <ul class="centro-links">
+            <li><strong>Ubicación:</strong> carrera 16 con calle 33, centro de Bucaramanga</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Carrera+16+con+Calle+36+Bucaramanga" target="_blank" rel="noopener">Consultar ubicación en Google Maps</a></li>
+          </ul>
+        </article>
+
+        <article class="centro-card reveal">
+          <h3>Experiencia digital</h3>
+          <p>La futura tienda virtual de JOKATRIX busca ofrecer a los compradores estas posibilidades:</p>
+          <ul class="centro-links">
+            <li>Revisar el catálogo de artículos.</li>
+            <li>Consultar descripciones, características y precios.</li>
+            <li>Realizar pedidos con opción de entrega a domicilio, según la cobertura disponible.</li>
+            <li>Centralizar las solicitudes de compra mediante un canal más organizado.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACTO ============ -->
+  <section class="section" id="impacto">
+    <div class="container">
+      <p class="eyebrow reveal">Beneficios proyectados</p>
+      <h2 class="reveal">La transformación que propone JOKATRIX</h2>
+
+      <div class="grid news-grid">
+        <article class="news-item reveal">
+          <time>Organización</time>
+          <h3>Datos centralizados</h3>
+          <p>Consulta de las cantidades disponibles, los movimientos de venta y la información de facturación desde un entorno común.</p>
+        </article>
+        <article class="news-item reveal">
+          <time>Productividad</time>
+          <h3>Procesos más ágiles</h3>
+          <p>Reducción de tareas manuales repetitivas y mejor seguimiento de los registros para disminuir inconsistencias.</p>
+        </article>
+        <article class="news-item reveal">
+          <time>Proyección</time>
+          <h3>Mayor alcance comercial</h3>
+          <p>Una vitrina digital que facilite el acceso al catálogo y permita explorar nuevas oportunidades de venta a distancia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-brand">JOKATRIX<span class="nav-dot">.</span></p>
+      <p>Una propuesta de gestión digital para La Casa de los Aperos, en Bucaramanga.</p>
+    </div>
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer-links">
+        <li><a href="#empresa">Conócenos</a></li>
+        <li><a href="#catalogo">Productos</a></li>
+        <li><a href="#modulos">Funcionalidades</a></li>
+      </ul>
+    </nav>
+    <p class="footer-credit">Proyecto JOKATRIX · HTML semántico, CSS Grid y JavaScript.</p>
+  </div>
+</footer>
+
+<a href="#inicio" class="to-top" id="toTop" aria-label="Volver al inicio">↑</a>
+
+<!-- ============ CHATBOT "ASISTENTE JOKATRIX" ============ -->
+<button class="chat-fab" id="chatFab" aria-label="Abrir asistente virtual" aria-expanded="false">
+  <span class="chat-fab-icon">🐎</span>
+</button>
+
+<div class="chat-window" id="chatWindow" hidden>
+  <div class="chat-header">
+    <div>
+      <p class="chat-title">Asistente virtual JOKATRIX</p>
+      <p class="chat-sub">Encuentra información sobre el proyecto y sus productos</p>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Cerrar asistente">×</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+
+  <div class="chat-chips" id="chatChips"></div>
+
+  <form class="chat-input-row" id="chatForm" autocomplete="off">
+    <input type="text" id="chatInput" placeholder="¿Qué deseas consultar?" aria-label="Escribe tu consulta">
+    <button type="submit" class="chat-send" aria-label="Enviar consulta">➤</button>
+  </form>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>
