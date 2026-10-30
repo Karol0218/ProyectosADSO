@@ -1,0 +1,536 @@
+
+/* =====================================
+   CONTENEDOR PRINCIPAL
+===================================== */
+
+.contenedor {
+  padding: 24px;
+  max-width: 1000px;
+  background-color: indigo;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  margin: 30px;
+  box-sizing: border-box;
+  
+}
+
+.descripcion1 {
+  color: white;
+  margin-bottom: 18px;
+  
+
+}
+
+.descripcion2 {
+  color: white;
+  margin-bottom: 24px;
+}
+
+.navegacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 24px;
+}
+
+table {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.contenido {
+  padding: 24px 8px;
+  min-height: 150px;
+  overflow-x: auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.instructorBoton {
+  margin-top: 24px;
+    display: flex;
+  width: fit-content;
+  margin: 24px 0 0 auto;    
+}
+
+/* =====================================
+   MODAL DE INSTRUCTORES
+===================================== */
+
+.fondo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.ventana-modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.acciones-formulario {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* =====================================
+   GESTIÓN DE COMPETENCIAS
+===================================== */
+
+.contenedor-competencias {
+  width: 100%;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Encabezado */
+
+.contenedor-competencias .encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.contenedor-competencias .encabezado h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Botón Nueva Competencia */
+
+.contenedor-competencias .encabezado button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tabla */
+
+.contenedor-competencias table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.contenedor-competencias th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.contenedor-competencias td,
+.contenedor-competencias th {
+  padding: 12px 16px;
+}
+
+.contenedor-competencias tr:hover td {
+  background-color: #f5f5f5;
+}
+
+/* =====================================
+   MODAL DE COMPETENCIAS
+===================================== */
+
+.contenedor-competencias .modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.55);
+  box-sizing: border-box;
+}
+
+/* Contenido del formulario */
+
+.contenedor-competencias .modal-contenido {
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.contenedor-competencias .modal-contenido h2 {
+  margin: 0 0 24px;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Campos */
+
+.contenedor-competencias form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contenedor-competencias mat-form-field {
+  width: 100%;
+}
+
+/* Botones del formulario */
+
+.contenedor-competencias .botones-formulario {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* =====================================
+   ASIGNACIONES
+===================================== */
+
+.formulario-asignacion {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+  box-sizing: border-box;
+}
+
+/* Combos de instructor y competencia */
+
+.formulario-asignacion mat-form-field {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+/* Botón guardar */
+
+.formulario-asignacion button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Tabla de asignaciones */
+
+.formulario-asignacion + .contenido table {
+  width: 100%;
+  min-width: 450px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+.contenido table th {
+  background-color: #f1f5f9;
+  color: #263238;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.contenido table th,
+.contenido table td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.contenido table tr:hover td {
+  background-color: #f8fafc;
+}
+
+/* Mensaje cuando no hay asignaciones */
+
+.mensaje-vacio {
+  margin-top: 18px;
+  padding: 20px;
+  color: #64748b;
+  text-align: center;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+}
+
+/* =====================================
+   FICHAS TITULADAS
+===================================== */
+
+.contenedor-fichas {
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* Encabezado */
+
+.encabezado-fichas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.encabezado-fichas h2 {
+  margin: 0 0 8px;
+  color: #263238;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.encabezado-fichas p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.encabezado-fichas button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Contenedor con desplazamiento horizontal */
+
+.tabla-fichas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+}
+
+/* Tabla */
+
+.tabla-fichas table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+  table-layout: auto;
+  background-color: #ffffff;
+}
+
+/* Encabezados */
+
+.tabla-fichas th {
+  background: #f1f5f9;
+  color: #263238;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Celdas */
+
+.tabla-fichas th,
+.tabla-fichas td {
+  padding: 14px 16px;
+  text-align: left;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.tabla-fichas td {
+  color: #475569;
+}
+
+/* Columnas de fechas */
+
+.tabla-fichas .mat-column-fechaInicio,
+.tabla-fichas .mat-column-fechaFin {
+  min-width: 130px;
+}
+
+/* Columna de acciones */
+
+.tabla-fichas .mat-column-acciones {
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Botones de editar y eliminar */
+
+.tabla-fichas .mat-column-acciones button {
+  margin: 0 2px;
+}
+
+/* Efecto al pasar el cursor */
+
+.tabla-fichas tr:hover td {
+  background: #f8fafc;
+}
+
+/* Mensaje cuando no hay fichas */
+
+.mensaje-vacio-fichas {
+  margin: 0;
+  padding: 24px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* =====================================
+   MODAL DE FICHAS TITULADAS
+===================================== */
+
+.modal-ficha {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.55);
+  box-sizing: border-box;
+}
+
+.contenido-modal-ficha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.contenido-modal-ficha h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 12px;
+  color: #263238;
+  font-size: 23px;
+  text-align: center;
+}
+
+.contenido-modal-ficha mat-form-field {
+  width: 100%;
+  min-width: 0;
+}
+
+.botones-ficha {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* =====================================
+   DISEÑO RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+  .contenedor {
+    margin: 16px;
+    padding: 20px;
+    max-width: none;
+    border-radius: 25px;
+  }
+
+  .formulario-asignacion {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .formulario-asignacion mat-form-field {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .formulario-asignacion button {
+    width: 100%;
+  }
+
+  .contenedor-competencias .encabezado {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contenedor-competencias {
+    overflow-x: auto;
+  }
+
+  .contenedor-competencias table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .encabezado-fichas {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contenido-modal-ficha {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .contenido-modal-ficha h2,
+  .botones-ficha {
+    grid-column: 1;
+  }
+
+  .botones-ficha {
+    flex-direction: column;
+  }
+
+  .botones-ficha button {
+    width: 100%;
+  }
+
+  .contenedor-competencias .modal-contenido {
+    padding: 20px;
+  }
+
+  .acciones-formulario {
+    flex-direction: column;
+  }
+
+  .acciones-formulario button {
+    width: 100%;
+  }
+}

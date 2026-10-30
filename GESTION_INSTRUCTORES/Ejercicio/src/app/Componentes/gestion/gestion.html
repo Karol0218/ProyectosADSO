@@ -1,0 +1,769 @@
+
+<mat-card class="contenedor">
+  <mat-card-header class="descripcion1">
+    <mat-card-title class="color">
+      Gestión de instructores
+    </mat-card-title>
+
+    <mat-card-subtitle class="descripcion2">
+      Administra la información de los instructores del sistema.
+    </mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<mat-tab-group>
+
+  <!-- =====================================
+       PESTAÑA INSTRUCTORES
+  ====================================== -->
+  <mat-tab label="Instructores">
+
+    <div class="barra-acciones">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="mostrarFormulario = true" class="instructorBoton ">
+        <mat-icon>person_add</mat-icon>
+        Registrar instructor
+      </button>
+    </div>
+
+    <!-- FORMULARIO DE INSTRUCTORES -->
+    @if (mostrarFormulario) {
+      <div class="fondo-modal">
+        <div class="ventana-modal">
+
+          <h2>
+            {{ instructorEditando === null
+              ? 'Registrar instructor'
+              : 'Editar instructor' }}
+          </h2>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre completo</mat-label>
+            <input
+              matInput
+              [(ngModel)]="nuevoInstructor.nombre">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input
+              matInput
+              [(ngModel)]="nuevoInstructor.telefono">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input
+              matInput
+              type="email"
+              [(ngModel)]="nuevoInstructor.correo">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Cargo</mat-label>
+            <mat-select [(ngModel)]="nuevoInstructor.cargo">
+              <mat-option value="Instructor">Instructor</mat-option>
+              <mat-option value="Coordinador">Coordinador</mat-option>
+              <mat-option value="Líder de área">Líder de área</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="opciones-instructor">
+            <mat-checkbox [(ngModel)]="nuevoInstructor.planta">
+              Es instructor de planta
+            </mat-checkbox>
+
+            <mat-checkbox [(ngModel)]="nuevoInstructor.liderFicha">
+              Es líder de ficha
+            </mat-checkbox>
+          </div>
+
+          <div class="acciones-formulario">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="guardarInstructor()">
+              <mat-icon>save</mat-icon>
+              Guardar
+            </button>
+
+            <button
+              mat-button
+              (click)="mostrarFormulario = false">
+              <mat-icon>close</mat-icon>
+              Cancelar
+            </button>
+          </div>
+
+        </div>
+      </div>
+    }
+
+    <!-- TABLA DE INSTRUCTORES -->
+    <div class="contenido">
+      <table mat-table [dataSource]="instructores">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.id }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.nombre }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefono">
+          <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.telefono }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef>Correo</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.correo }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cargo">
+          <th mat-header-cell *matHeaderCellDef>Cargo</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.cargo }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="planta">
+          <th mat-header-cell *matHeaderCellDef>Planta</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.planta ? 'Sí' : 'No' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="liderFicha">
+          <th mat-header-cell *matHeaderCellDef>Líder de ficha</th>
+          <td mat-cell *matCellDef="let instructor">
+            {{ instructor.liderFicha ? 'Sí' : 'No' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let instructor">
+
+            <div class="acciones-tabla">
+              <button
+                mat-icon-button
+                color="primary"
+                aria-label="Editar instructor"
+                (click)="editarInstructor(instructor)">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="Eliminar instructor"
+                (click)="eliminarInstructor(instructor.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="columnasInstructores">
+        </tr>
+
+        <tr
+          mat-row
+          *matRowDef="let row; columns: columnasInstructores">
+        </tr>
+
+      </table>
+    </div>
+
+  </mat-tab>
+
+  <!-- =====================================
+       PESTAÑA COMPETENCIAS
+  ====================================== -->
+  <mat-tab label="Competencias">
+
+    <div class="contenedor-competencias">
+
+      <div class="encabezado">
+        <div>
+          <h2>Gestión de Competencias</h2>
+          <p class="descripcion">
+            Administra las competencias de formación.
+          </p>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="abrirNuevaCompetencia()">
+          <mat-icon>add</mat-icon>
+          Nueva Competencia
+        </button>
+      </div>
+
+      <!-- TABLA DE COMPETENCIAS -->
+      <div class="tabla-competencias">
+        <table
+          mat-table
+          [dataSource]="competencias"
+          class="mat-elevation-z8">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID Competencia</th>
+            <td mat-cell *matCellDef="let competencia">
+              {{ competencia.id }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let competencia">
+              {{ competencia.nombre }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let competencia">
+              {{ competencia.tipo }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="duracion">
+            <th mat-header-cell *matHeaderCellDef>Duración (horas)</th>
+            <td mat-cell *matCellDef="let competencia">
+              {{ competencia.duracion }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let competencia">
+
+              <div class="acciones-tabla">
+                <button
+                  mat-icon-button
+                  color="primary"
+                  (click)="editarCompetencia(competencia)"
+                  aria-label="Editar competencia">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button
+                  mat-icon-button
+                  color="warn"
+                  (click)="eliminarCompetencia(competencia.id)"
+                  aria-label="Eliminar competencia">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="columnasCompetencias">
+          </tr>
+
+          <tr
+            mat-row
+            *matRowDef="let row; columns: columnasCompetencias">
+          </tr>
+
+        </table>
+      </div>
+
+      <!-- FORMULARIO DE COMPETENCIAS -->
+      @if (mostrarFormularioCompetencia) {
+        <div class="modal">
+          <div class="modal-contenido">
+
+            <h2>
+              {{ competenciaEditando !== null
+                ? 'Editar Competencia'
+                : 'Registrar Competencia' }}
+            </h2>
+
+            <form>
+
+              <mat-form-field appearance="outline">
+                <mat-label>ID Competencia</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  [(ngModel)]="nuevaCompetencia.id"
+                  name="id"
+                  readonly>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="nuevaCompetencia.nombre"
+                  name="nombre"
+                  placeholder="Nombre de la competencia"
+                  required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo</mat-label>
+                <mat-select
+                  [(ngModel)]="nuevaCompetencia.tipo"
+                  name="tipo"
+                  required>
+
+                  <mat-option value="Técnica">Técnica</mat-option>
+                  <mat-option value="Transversal">Transversal</mat-option>
+                  <mat-option value="Básica">Básica</mat-option>
+                  <mat-option value="Específica">Específica</mat-option>
+
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Duración (horas)</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  [(ngModel)]="nuevaCompetencia.duracion"
+                  name="duracion"
+                  min="1"
+                  required>
+              </mat-form-field>
+
+              <div class="botones-formulario">
+                <button
+                  mat-raised-button
+                  type="button"
+                  color="primary"
+                  (click)="guardarCompetencia()">
+                  <mat-icon>save</mat-icon>
+                  Guardar
+                </button>
+
+                <button
+                  mat-raised-button
+                  type="button"
+                  (click)="mostrarFormularioCompetencia = false;
+                           competenciaEditando = null">
+                  <mat-icon>close</mat-icon>
+                  Cancelar
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      }
+
+    </div>
+
+  </mat-tab>
+
+  <!-- =====================================
+       PESTAÑA ASIGNACIONES
+  ====================================== -->
+  <mat-tab label="Asignaciones">
+
+    <div class="contenido">
+
+      <h2>Gestión de asignaciones</h2>
+
+      <p class="descripcion">
+        Asigna competencias a los instructores registrados.
+      </p>
+
+      <!-- FORMULARIO DE ASIGNACIÓN -->
+      <div class="formulario-asignacion">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Instructor</mat-label>
+
+          <mat-select [(ngModel)]="nuevaAsignacion.instructorId">
+            @for (instructor of instructores; track instructor.id) {
+              <mat-option [value]="instructor.id">
+                {{ instructor.nombre }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Competencia</mat-label>
+
+          <mat-select [(ngModel)]="nuevaAsignacion.competenciaId">
+            @for (competencia of competencias; track competencia.id) {
+              <mat-option [value]="competencia.id">
+                {{ competencia.nombre }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <div class="acciones-asignacion">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="guardarAsignacion()">
+            <mat-icon>save</mat-icon>
+            Guardar asignación
+          </button>
+        </div>
+
+      </div>
+
+      <!-- TABLA DE ASIGNACIONES -->
+      <div class="tabla-asignaciones">
+        <table mat-table [dataSource]="asignaciones">
+
+          <ng-container matColumnDef="instructor">
+            <th mat-header-cell *matHeaderCellDef>Instructor</th>
+            <td mat-cell *matCellDef="let asignacion">
+              {{ asignacion.instructorNombre }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="competencia">
+            <th mat-header-cell *matHeaderCellDef>Competencia</th>
+            <td mat-cell *matCellDef="let asignacion">
+              {{ asignacion.competenciaNombre }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let asignacion">
+
+              <div class="acciones-tabla">
+                <button
+                  mat-icon-button
+                  color="warn"
+                  aria-label="Eliminar asignación"
+                  (click)="eliminarAsignacion(
+                    asignacion.instructorId,
+                    asignacion.competenciaId
+                  )">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="columnasAsignaciones">
+          </tr>
+
+          <tr
+            mat-row
+            *matRowDef="let row; columns: columnasAsignaciones">
+          </tr>
+
+        </table>
+
+        @if (asignaciones.length === 0) {
+          <p class="mensaje-vacio">
+            Aún no hay asignaciones registradas.
+          </p>
+        }
+
+      </div>
+
+    </div>
+
+  </mat-tab>
+
+  <!-- =====================================
+       PESTAÑA FICHAS TITULADAS
+  ====================================== -->
+  <mat-tab label="Fichas tituladas">
+
+    <div class="contenedor-fichas">
+
+      <div class="encabezado-fichas">
+        <div>
+          <h2>Gestión de fichas tituladas</h2>
+          <p>Registra y administra las fichas de formación.</p>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="abrirNuevaFicha()">
+          <mat-icon>add</mat-icon>
+          Nueva ficha
+        </button>
+      </div>
+
+      <!-- TABLA DE FICHAS -->
+      <div class="tabla-fichas">
+        <table mat-table [dataSource]="fichas">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef># Ficha</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.id }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="programa">
+            <th mat-header-cell *matHeaderCellDef>Programa</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.programa }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="jornada">
+            <th mat-header-cell *matHeaderCellDef>Jornada</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.jornada }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="instructorLider">
+            <th mat-header-cell *matHeaderCellDef>Instructor líder</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.instructorLiderNombre }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="ambiente">
+            <th mat-header-cell *matHeaderCellDef>Ambiente</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.ambiente }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaInicio">
+            <th mat-header-cell *matHeaderCellDef>Fecha inicio</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.fechaInicio | date:'dd/MM/yyyy' }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaFin">
+            <th mat-header-cell *matHeaderCellDef>Fecha fin</th>
+            <td mat-cell *matCellDef="let ficha">
+              {{ ficha.fechaFin | date:'dd/MM/yyyy' }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let ficha">
+
+              <div class="acciones-tabla">
+                <button
+                  mat-icon-button
+                  color="primary"
+                  aria-label="Editar ficha"
+                  (click)="editarFicha(ficha)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button
+                  mat-icon-button
+                  color="warn"
+                  aria-label="Eliminar ficha"
+                  (click)="eliminarFicha(ficha.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="columnasFichas">
+          </tr>
+
+          <tr
+            mat-row
+            *matRowDef="let row; columns: columnasFichas">
+          </tr>
+
+        </table>
+
+        @if (fichas.length === 0) {
+          <p class="mensaje-vacio-fichas">
+            Aún no hay fichas tituladas registradas.
+          </p>
+        }
+      </div>
+
+      <!-- FORMULARIO DE FICHAS -->
+      @if (mostrarFormularioFicha) {
+        <div class="modal-ficha">
+          <div class="contenido-modal-ficha">
+
+            <h2>
+              {{ fichaEditando !== null
+                ? 'Editar ficha'
+                : 'Registrar ficha' }}
+            </h2>
+
+            <!-- Número de ficha -->
+            <mat-form-field appearance="outline">
+              <mat-label># Ficha</mat-label>
+              <input
+                matInput
+                type="number"
+                [(ngModel)]="nuevaFicha.id"
+                name="idFicha"
+                required>
+            </mat-form-field>
+
+            <!-- Programa -->
+            <mat-form-field appearance="outline">
+              <mat-label>Programa</mat-label>
+              <mat-select
+                [(ngModel)]="nuevaFicha.programa"
+                name="programa"
+                required>
+
+                @for (programa of programasFicha; track programa) {
+                  <mat-option [value]="programa">
+                    {{ programa }}
+                  </mat-option>
+                }
+
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Jornada -->
+            <mat-form-field appearance="outline">
+              <mat-label>Jornada</mat-label>
+              <mat-select
+                [(ngModel)]="nuevaFicha.jornada"
+                name="jornada"
+                required>
+
+                @for (jornada of jornadasFicha; track jornada) {
+                  <mat-option [value]="jornada">
+                    {{ jornada }}
+                  </mat-option>
+                }
+
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Instructor líder -->
+            <mat-form-field appearance="outline">
+              <mat-label>Instructor líder</mat-label>
+              <mat-select
+                [(ngModel)]="nuevaFicha.instructorLiderId"
+                name="instructorLider"
+                required>
+
+                @for (instructor of instructores; track instructor.id) {
+                  <mat-option [value]="instructor.id">
+                    {{ instructor.nombre }}
+                  </mat-option>
+                }
+
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Ambiente -->
+            <mat-form-field appearance="outline">
+              <mat-label>Ambiente</mat-label>
+              <mat-select
+                [(ngModel)]="nuevaFicha.ambiente"
+                name="ambiente"
+                required>
+
+                @for (ambiente of ambientes; track ambiente.id) {
+                  <mat-option [value]="ambiente.nombre">
+                    {{ ambiente.nombre }}
+                  </mat-option>
+                }
+
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Fecha de inicio -->
+            <mat-form-field appearance="outline">
+              <mat-label>Fecha inicio</mat-label>
+              <input
+                matInput
+                [matDatepicker]="pickerInicio"
+                [(ngModel)]="nuevaFicha.fechaInicio"
+                name="fechaInicio"
+                required>
+
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerInicio">
+              </mat-datepicker-toggle>
+
+              <mat-datepicker #pickerInicio></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Fecha de fin -->
+            <mat-form-field appearance="outline">
+              <mat-label>Fecha fin</mat-label>
+              <input
+                matInput
+                [matDatepicker]="pickerFin"
+                [(ngModel)]="nuevaFicha.fechaFin"
+                name="fechaFin"
+                required>
+
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerFin">
+              </mat-datepicker-toggle>
+
+              <mat-datepicker #pickerFin></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Botones -->
+            <div class="botones-ficha">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="guardarFicha()">
+                <mat-icon>save</mat-icon>
+                Guardar
+              </button>
+
+              <button
+                mat-button
+                (click)="mostrarFormularioFicha = false;
+                         fichaEditando = null">
+                <mat-icon>close</mat-icon>
+                Cancelar
+              </button>
+            </div>
+
+          </div>
+        </div>
+      }
+
+    </div>
+
+  </mat-tab>
+
+</mat-tab-group>
